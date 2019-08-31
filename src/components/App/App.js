@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import Details from '../Details/Details';
+import Home from '../Home/Home';
+import Edit from '../Edit/Edit';
+import { connect } from 'react-redux';
 
 class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
-      <div className="App">
-        <p>Empty Page</p>
-      </div>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title">Movies!</h1>
+            <h4><i>Movie List!</i></h4>
+          </header>
+          <br />
+          <Route exact path="/" component={Home} />
+          <Route path="/Edit" component={Edit} />
+          <Route path="/Details" component={Details} />
+         
+        </div>
+      </Router>
     );
   }
 }
 
-export default App;
+export default connect()(App);
