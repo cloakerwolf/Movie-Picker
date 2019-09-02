@@ -2,12 +2,37 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //component for Movie used by the map
 import Movie from "../Movie/Movie";
+//material-ui
+import { withStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+
+
+
+const styles = theme => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+        backgroundColor: theme.palette.background.paper
+    },
+    gridList: {
+        width: 'auto',
+        height: 'auto',
+    },
+});
+
 
 
 
 class Home extends Component {
+
+
+
+
     componentDidMount() {
-       this.getMovies();
+        this.getMovies();
     }
 
     getMovies = () => {
@@ -25,20 +50,27 @@ class Home extends Component {
 
 
 
-
     render() {
         let movies = this.props.reduxStore.movies.map((movie) => {
-            return(
-               
-                <Movie key={movie.id} movie={movie} seeDetails={this.seeDetails} />
-             
+            return (
+                <GridListTile key={movie.id} cols={1} row={1}>
+                    <Movie movie={movie} seeDetails={this.seeDetails} key={movie.id} />
+                </GridListTile>
             )
         })
 
+        const { classes } = this.props;
         return (
-            <>
-            {movies}
-            </>
+            <div className={classes.root}>
+                <GridList
+                    cols={2}
+                    cellHeight={700}
+                    spacing={20}
+                    className={classes.gridList}
+                >
+                    {movies}
+                </GridList>
+            </div>
         );
     }
 }
@@ -50,4 +82,4 @@ const mapStateToProps = (reduxStore) => {
     }
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(withStyles(styles)(Home));
