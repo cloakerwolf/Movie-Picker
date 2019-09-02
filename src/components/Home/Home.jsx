@@ -16,6 +16,12 @@ class Home extends Component {
         })
     }
 
+    seeDetails = (id) => {
+        //capture the id of the specific movie and push to the details page
+        console.log('clicked pic', id);
+        this.props.history.push(`/Details/${id}`);
+
+    }
 
 
 
@@ -24,7 +30,7 @@ class Home extends Component {
         let movies = this.props.reduxStore.movies.map((movie) => {
             return(
                
-                <Movie key={movie.id} movie={movie} />
+                <Movie key={movie.id} movie={movie} seeDetails={this.seeDetails} />
              
             )
         })

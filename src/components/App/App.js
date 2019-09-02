@@ -18,8 +18,9 @@ class App extends Component {
           </header>
           <br />
           <Route exact path="/" component={Home} />
-          <Route path="/Edit" component={Edit} />
-          <Route path="/Details" component={Details} />
+          {/* send the id from the clicked on poster */}
+          <Route path="/Edit/:id" component={Edit} />
+          <Route path="/Details/:id" component={Details} />
          
         </div>
       </Router>

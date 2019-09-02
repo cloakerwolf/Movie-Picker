@@ -4,7 +4,15 @@ import { connect } from 'react-redux';
 
 class Details extends Component {
     componentDidMount() {
-       
+       this.fetchMovieWithGenre();
+    }
+
+    fetchMovieWithGenre = () => {
+        let id = this.props.match.params.id;
+        this.props.dispatch({
+            type: 'FETCH_SPECIFIC_MOVIE',
+            payload: id
+        });
     }
 
    
@@ -12,9 +20,17 @@ class Details extends Component {
     
     render() {
         
+        
         return (
            <>
-           <h1>Details page</h1>
+           {/* {JSON.stringify(this.props.reduxStore.specificMovie)} */}
+           <img
+           src={this.props.reduxStore.specificMovie.poster}
+           alt={this.props.reduxStore.specificMovie.title}
+           ></img>
+           <h1>{this.props.reduxStore.specificMovie.title}</h1>
+           <p>{this.props.reduxStore.specificMovie.genres}</p>
+           <p>{this.props.reduxStore.specificMovie.description}</p>
            
            </>
         );

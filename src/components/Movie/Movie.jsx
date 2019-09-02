@@ -3,12 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 class Movie extends Component {
-    seeDetails = (event) => {
-        //capture the id of the specific movie and push to the details page
-        let id = this.props.movie.id;
-        this.props.history.push(`/Details/${id}`);
-        
-    }
+    
 
 
     render(){
@@ -17,7 +12,7 @@ class Movie extends Component {
                 {/* show posters on dom */}
                 <img src={this.props.movie.poster} 
                 alt={this.props.movie.title}
-                onClick={this.seeDetails}
+                onClick={() => this.props.seeDetails(this.props.movie.id)}
                 ></img>
                 {/* show the title of the movies */}
                 <h1>{this.props.movie.title}</h1>
@@ -28,4 +23,4 @@ class Movie extends Component {
     }
 }
 
-export default withRouter(connect()(Movie);
+export default withRouter(connect()(Movie));
