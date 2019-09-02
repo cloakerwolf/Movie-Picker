@@ -25,7 +25,7 @@ class Details extends Component {
         return (
            <>
             <div>
-                <Button variant="contained" color="secondary" onClick={() => { this.props.history.push('/') }} className="btn btn-secondary btn-lg checkoutBtn">Home</Button>
+                <Button variant="contained" color="secondary" onClick={() => { this.props.history.push('/') }} className="btn btn-secondary btn-lg checkoutBtn">Back to list</Button>
                 <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/Edit/${this.props.match.params.id}`)} className="btn btn-secondary btn-lg checkoutBtn">Edit</Button>
             </div>
            {/* {JSON.stringify(this.props.reduxStore.specificMovie)} */}
