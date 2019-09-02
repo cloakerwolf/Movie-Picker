@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+//component for Movie used by the map
+import Movie from "../Movie/Movie";
 
 
 
 class Home extends Component {
     componentDidMount() {
+       this.getMovies();
+    }
+
+    getMovies = () => {
         this.props.dispatch({
             type: 'FETCH_MOVIES'
         })
@@ -17,11 +23,9 @@ class Home extends Component {
     render() {
         let movies = this.props.reduxStore.movies.map((movie) => {
             return(
-                <div key={movie.id}>
-                    <img src={movie.poster} alt={movie.title}></img>
-                    <p>{movie.title}</p>
-                    <p>{movie.description}</p>
-                </div>
+               
+                <Movie key={movie.id} movie={movie} />
+             
             )
         })
 
