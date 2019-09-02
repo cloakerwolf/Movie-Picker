@@ -47,6 +47,24 @@ router.get('/genre/:id', (req, res) => {
 });
 
 
+router.put('/', (req, res) => {
+    let edit = req.body;
+    console.log('in PUT request of router.put', edit);
+    const queryText = `UPDATE "movies"
+                        SET "title" = $1, "description" = $2
+                        WHERE "id" = $3;`;
+    pool.query(queryText, [edit.title, edit.description, edit.id])
+        .then(result => {
+            
+            res.sendStatus(201);
+        }).catch(error => {
+            console.log('error in PUT request of router.put', error);
+            
+            res.sendStatus(500);
+        })
+
+})
+
 
 
 

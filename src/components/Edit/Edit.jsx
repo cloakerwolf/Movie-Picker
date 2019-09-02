@@ -8,12 +8,29 @@ class Edit extends Component {
         description: this.props.reduxStore.specificMovie.description
     }
 
+
+    edit = () => {
+        let editted = {
+            id: this.props.reduxStore.specificMovie.id,
+            title: this.state.title,
+            description: this.state.description
+        }
+        console.log(editted);
+        this.props.dispatch({
+            type: 'EDIT_MOVIE',
+            payload: editted
+        })
+        this.props.history.push(`/Details/${this.props.match.params.id}`)
+        
+    }
+    
+
     render() {
         return (
             <>
                 <div>
-                    <input placeholder="title" value={this.state.title} onChange={this.edit} />
-                    <input placeholder="description" value={this.state.description} />
+                    <input placeholder="title" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />
+                    <input placeholder="description" value={this.state.description} onChange={(event) => this.setState({ description: event.target.value })} />
                 </div>
                 <div>
                     <Button variant="contained" color="secondary" onClick={() => { this.props.history.push(`/Details/${this.props.match.params.id}`) }} className="btn btn-secondary btn-lg checkoutBtn">Cancel</Button>

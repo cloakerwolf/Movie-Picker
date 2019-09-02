@@ -16,6 +16,7 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
     yield takeEvery('FETCH_SPECIFIC_MOVIE', fetchSpecificMovie);
+    yield takeEvery('EDIT_MOVIE', editMovie);
 };
 
 //get movies from the db
@@ -45,6 +46,19 @@ function* fetchSpecificMovie(action) {
     }
 }
 
+
+function* editMovie(action) {
+    try {
+        yield axios.put(`/movieList`, action.payload);
+        yield put({
+            type: 'FETCH_SPECIFIC_MOVIE',
+            payload: action.payload.id
+        })
+    } catch (error) {
+        console.log('error in put on editMovie', error);
+        
+    }
+}
 
 
 
