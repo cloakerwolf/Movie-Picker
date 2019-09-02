@@ -3,23 +3,28 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 
 class Edit extends Component {
+    //shows the old state of coming from the db which is later changed when things are editted
     state = {
         title: this.props.reduxStore.specificMovie.title,
         description: this.props.reduxStore.specificMovie.description
     }
 
 
+
     edit = () => {
+        //replaces the state with the new imputs
         let editted = {
             id: this.props.reduxStore.specificMovie.id,
             title: this.state.title,
             description: this.state.description
         }
+        //send the editted state back to the saga
         console.log(editted);
         this.props.dispatch({
             type: 'EDIT_MOVIE',
             payload: editted
         })
+        //sends you back to details for the one you just changed
         this.props.history.push(`/Details/${this.props.match.params.id}`)
         
     }

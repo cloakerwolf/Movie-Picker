@@ -20,6 +20,13 @@ class Details extends Component {
 
     
     render() {
+        let genres = this.props.reduxStore.specificMovie.genres.map((genre) => {
+            return (
+                
+                <li key={genre} >{genre}</li>
+                
+            )
+        })
         
         
         return (
@@ -34,7 +41,9 @@ class Details extends Component {
            alt={this.props.reduxStore.specificMovie.title}
            ></img>
            <h1>{this.props.reduxStore.specificMovie.title}</h1>
-           <p>{this.props.reduxStore.specificMovie.genres}</p>
+           {/* <p>{this.props.reduxStore.specificMovie.genres}</p> */}
+           {/* this puts it in a list so the words are not running together */}
+                <ul>{genres}</ul>
            <p>{this.props.reduxStore.specificMovie.description}</p>
            
            
