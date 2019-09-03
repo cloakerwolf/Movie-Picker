@@ -35,7 +35,16 @@ class Edit extends Component {
             <>
                 <div>
                     <input placeholder="title" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />
-                    <input placeholder="description" value={this.state.description} onChange={(event) => this.setState({ description: event.target.value })} />
+                    <br />
+                    <textarea
+                        rows="10"
+                        col="100"
+                        name="description"
+                        onChange={(event) => this.setState({ description: event.target.value })}
+                        placeholder={this.props.reduxStore.specificMovie.description}
+                    />
+                    {/* started with an input then noticed that textarea was asked for */}
+                    {/* <input placeholder="description" value={this.state.description} onChange={(event) => this.setState({ description: event.target.value })} /> */}
                 </div>
                 <div>
                     <Button variant="contained" color="secondary" onClick={() => { this.props.history.push(`/Details/${this.props.match.params.id}`) }} className="btn btn-secondary btn-lg checkoutBtn">Cancel</Button>
