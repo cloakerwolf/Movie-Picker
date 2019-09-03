@@ -26,15 +26,15 @@ class Edit extends Component {
         })
         //sends you back to details for the one you just changed
         this.props.history.push(`/Details/${this.props.match.params.id}`)
-        
+
     }
-    
+
 
     render() {
         return (
             <>
                 <div>
-                    <input placeholder="title" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />
+                    <input placeholder="title" value={this.state.title} onChange={(event) => this.setState({ title: event.target.value })} />
                     <br />
                     <textarea
                         rows="20"

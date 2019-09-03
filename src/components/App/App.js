@@ -21,7 +21,7 @@ class App extends Component {
           {/* send the id from the clicked on poster */}
           <Route path="/Edit/:id" component={Edit} />
           <Route path="/Details/:id" component={Details} />
-         
+
         </div>
       </Router>
     );

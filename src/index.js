@@ -40,7 +40,7 @@ function* fetchSpecificMovie(action) {
             type: 'SET_SPECIFIC',
             payload: specific.data
         })
-        
+
     } catch (error) {
         console.log('error in GET on fetchSpecificMovie', error);
 
@@ -58,7 +58,7 @@ function* editMovie(action) {
         })
     } catch (error) {
         console.log('error in put on editMovie', error);
-        
+
     }
 }
 
@@ -90,7 +90,7 @@ const movies = (state = [], action) => {
 // }
 
 //Used to store the specific movie
-const specificMovie = (state = {genres: []}, action) => {
+const specificMovie = (state = { genres: [] }, action) => {
     switch (action.type) {
         case 'SET_SPECIFIC':
             return action.payload;

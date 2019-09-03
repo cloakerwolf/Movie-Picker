@@ -25,16 +25,16 @@ const styles = theme => ({
 
 
 class Details extends Component {
-    
+
 
 
 
 
     componentDidMount() {
-       this.fetchMovieWithGenre();
+        this.fetchMovieWithGenre();
     }
 
-    
+
     fetchMovieWithGenre = () => {
         let id = this.props.match.params.id;
         this.props.dispatch({
@@ -43,34 +43,34 @@ class Details extends Component {
         });
     }
 
-   
 
-    
+
+
     render() {
         //loop through the genres on the specific movie
         let genres = this.props.reduxStore.specificMovie.genres.map((genre) => {
             return (
                 <GridListTile key={genre} cols={1} row={1}>
-                <div key={genre} >{genre}</div>
+                    <div key={genre} >{genre}</div>
                 </GridListTile>
             )
         })
-        
+
         const { classes } = this.props;
         return (
-           <>
-            <div>
-                <Button variant="contained" color="secondary" onClick={() => { this.props.history.push('/') }} className="btn btn-secondary btn-lg checkoutBtn">Back to list</Button>
-                <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/Edit/${this.props.match.params.id}`)} className="btn btn-secondary btn-lg checkoutBtn">Edit</Button>
-            </div>
-           {/* {JSON.stringify(this.props.reduxStore.specificMovie)} */}
-           <img
-           src={this.props.reduxStore.specificMovie.poster}
-           alt={this.props.reduxStore.specificMovie.title}
-           ></img>
-           <h1>{this.props.reduxStore.specificMovie.title}</h1>
-           {/* <p>{this.props.reduxStore.specificMovie.genres}</p> */}
-           {/* this puts it in a list so the words are not running together */}
+            <>
+                <div>
+                    <Button variant="contained" color="secondary" onClick={() => { this.props.history.push('/') }} className="btn btn-secondary btn-lg checkoutBtn">Back to list</Button>
+                    <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/Edit/${this.props.match.params.id}`)} className="btn btn-secondary btn-lg checkoutBtn">Edit</Button>
+                </div>
+                {/* {JSON.stringify(this.props.reduxStore.specificMovie)} */}
+                <img
+                    src={this.props.reduxStore.specificMovie.poster}
+                    alt={this.props.reduxStore.specificMovie.title}
+                ></img>
+                <h1>{this.props.reduxStore.specificMovie.title}</h1>
+                {/* <p>{this.props.reduxStore.specificMovie.genres}</p> */}
+                {/* this puts it in a list so the words are not running together */}
                 <div className={classes.root}>
                     <GridList
                         cols={2}
@@ -80,12 +80,12 @@ class Details extends Component {
                     >
                         {genres}
                     </GridList>
-                </div>   
-                
-           <p>{this.props.reduxStore.specificMovie.description}</p>
-           
-           
-           </>
+                </div>
+
+                <p>{this.props.reduxStore.specificMovie.description}</p>
+
+
+            </>
         );
     }
 }

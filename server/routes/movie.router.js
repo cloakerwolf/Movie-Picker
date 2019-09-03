@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 router.get('/genre/:id', (req, res) => {
     //return movie for specific id with genre
     let id = req.params.id;
-    let queryText = 
+    let queryText =
         `SELECT "movies".id, poster, title, array_agg("genres".name) AS "genres", description
         FROM "movies"
         JOIN "movies_genres" ON "movies_genres".movies_id = "movies".id
@@ -55,11 +55,11 @@ router.put('/', (req, res) => {
                         WHERE "id" = $3;`;
     pool.query(queryText, [edit.title, edit.description, edit.id])
         .then(result => {
-            
+
             res.sendStatus(201);
         }).catch(error => {
             console.log('error in PUT request of router.put', error);
-            
+
             res.sendStatus(500);
         })
 

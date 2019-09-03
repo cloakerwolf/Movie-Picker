@@ -1,3 +1,30 @@
+Prerequisites
+I used npm install for:
+"@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^4.2.1",
+    "axios": "^0.18.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "pg": "^7.11.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.0.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^1.0.2",
+    "router": "^1.3.3"
+
+
+
+
+
+
+
+
+
+
 # React-Redux with Sagas
 
 > **PLEASE COMMENT YOUR CODE.** Do not clone this repository. Instead, download the zip, extract the contents, `git init`, `git add .`, `git commit -m "initial commit - base project"` and add your remote. Please do this before you leave for the day.
