@@ -1,3 +1,6 @@
+Movie sagas is an movie browser that has a list of movies on its home page. You can click on the Posters for each of the movies and open its description. Within the description for each movie there is an edit button that allows you to change the title and description of the movie.
+
+
 Prerequisites
 I used npm install for:
 "@material-ui/core": "^3.9.3",
@@ -15,6 +18,34 @@ I used npm install for:
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.0.2",
     "router": "^1.3.3"
+
+
+installing
+1. dowload this project
+2. npm install 
+3. npm run server
+4. npm run client
+
+Completed Features
+1. Able to see the list of movies on the dom
+2. Able to see the description of the movie
+3. Able to edit the title and description of a movie
+
+
+Next Steps
+feature A
+I plan to add new genres into the database/movie
+
+feature B
+I plan to be able to remove genre from the database/movie
+
+feature C
+I plan to allow the user to add there own movies
+
+Author
+Alex Smith
+
+
 
 
 
