@@ -8,6 +8,7 @@ class Details extends Component {
        this.fetchMovieWithGenre();
     }
 
+    
     fetchMovieWithGenre = () => {
         let id = this.props.match.params.id;
         this.props.dispatch({
@@ -20,6 +21,7 @@ class Details extends Component {
 
     
     render() {
+        //loop through the genres on the specific movie
         let genres = this.props.reduxStore.specificMovie.genres.map((genre) => {
             return (
                 

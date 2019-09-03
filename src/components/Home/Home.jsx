@@ -8,7 +8,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 
 
-
+//material-ui
 const styles = theme => ({
     root: {
         display: 'flex',
@@ -35,12 +35,14 @@ class Home extends Component {
         this.getMovies();
     }
 
+    //get all movies
     getMovies = () => {
         this.props.dispatch({
             type: 'FETCH_MOVIES'
         })
     }
 
+    //open the Details page for specific id
     seeDetails = (id) => {
         //capture the id of the specific movie and push to the details page
         console.log('clicked pic', id);
@@ -51,6 +53,7 @@ class Home extends Component {
 
 
     render() {
+        //loop through movies 
         let movies = this.props.reduxStore.movies.map((movie) => {
             return (
                 <GridListTile key={movie.id} cols={1} row={1}>
@@ -58,7 +61,7 @@ class Home extends Component {
                 </GridListTile>
             )
         })
-
+        //material-ui
         const { classes } = this.props;
         return (
             <div className={classes.root}>

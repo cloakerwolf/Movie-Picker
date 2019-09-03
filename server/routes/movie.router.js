@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 router.get('/genre/:id', (req, res) => {
     //return movie for specific id with genre
     let id = req.params.id;
-    let queryText = //`SELECT * FROM "movies" ORDER BY "title" ASC;`;
+    let queryText = 
         `SELECT "movies".id, poster, title, array_agg("genres".name) AS "genres", description
         FROM "movies"
         JOIN "movies_genres" ON "movies_genres".movies_id = "movies".id
@@ -46,7 +46,7 @@ router.get('/genre/:id', (req, res) => {
         });
 });
 
-
+//update the title and description for an id
 router.put('/', (req, res) => {
     let edit = req.body;
     console.log('in PUT request of router.put', edit);

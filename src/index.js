@@ -19,7 +19,7 @@ function* rootSaga() {
     yield takeEvery('EDIT_MOVIE', editMovie);
 };
 
-//get movies from the db
+//get all movies from the db
 function* fetchMovies(action) {
     try {
         let response = yield axios.get('/movieList')
@@ -31,6 +31,7 @@ function* fetchMovies(action) {
     }
 };
 
+//get specific movie from the db using the id
 function* fetchSpecificMovie(action) {
     try {
         let specific = yield axios.get(`/movieList/genre/${action.payload}`);
@@ -47,6 +48,7 @@ function* fetchSpecificMovie(action) {
 }
 
 
+//sends changes to the db for the title and description
 function* editMovie(action) {
     try {
         yield axios.put(`/movieList`, action.payload);
