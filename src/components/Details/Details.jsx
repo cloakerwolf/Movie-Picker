@@ -1,9 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+
+
+
+//material-ui
+const styles = theme => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+        backgroundColor: theme.palette.background.paper
+    },
+    gridList: {
+        width: 'auto',
+        height: 'auto',
+    },
+});
+
 
 
 class Details extends Component {
+    
+
+
+
+
     componentDidMount() {
        this.fetchMovieWithGenre();
     }
@@ -24,13 +50,13 @@ class Details extends Component {
         //loop through the genres on the specific movie
         let genres = this.props.reduxStore.specificMovie.genres.map((genre) => {
             return (
-                
-                <li key={genre} >{genre}</li>
-                
+                <GridListTile key={genre} cols={1} row={1}>
+                <div key={genre} >{genre}</div>
+                </GridListTile>
             )
         })
         
-        
+        const { classes } = this.props;
         return (
            <>
             <div>
@@ -45,7 +71,17 @@ class Details extends Component {
            <h1>{this.props.reduxStore.specificMovie.title}</h1>
            {/* <p>{this.props.reduxStore.specificMovie.genres}</p> */}
            {/* this puts it in a list so the words are not running together */}
-                <ul>{genres}</ul>
+                <div className={classes.root}>
+                    <GridList
+                        cols={2}
+                        cellHeight={20}
+                        spacing={20}
+                        className={classes.gridList}
+                    >
+                        {genres}
+                    </GridList>
+                </div>   
+                
            <p>{this.props.reduxStore.specificMovie.description}</p>
            
            
@@ -60,4 +96,4 @@ const mapStateToProps = (reduxStore) => {
     }
 }
 
-export default connect(mapStateToProps)(Details);
+export default connect(mapStateToProps)(withStyles(styles)(Details));
