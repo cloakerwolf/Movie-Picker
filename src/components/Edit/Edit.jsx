@@ -37,7 +37,7 @@ class Edit extends Component {
                     <input placeholder="title" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />
                     <br />
                     <textarea
-                        rows="10"
+                        rows="20"
                         col="100"
                         name="description"
                         onChange={(event) => this.setState({ description: event.target.value })}
