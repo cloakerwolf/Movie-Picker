@@ -3,6 +3,10 @@
 ## Description
 Movie sagas is an movie browser that has a list of movies on its home page. You can click on the Posters for each of the movies and open its description. Within the description for each movie there is an edit button that allows you to change the title and description of the movie.
 
+## Application Screen Shot
+![movielist](screenshots/movielist.png)
+![moviedesription](screenshots/moviedescription.png)
+![editmovie](screenshots/editmovie.png)
 
 ## Prerequisites
 
